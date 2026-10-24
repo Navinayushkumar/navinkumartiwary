@@ -1,0 +1,99 @@
+/* Shared style for all blog pages. Same palette and fonts as the homepage. */
+:root{
+  --bg:#F4F5F8; --surface:#FFFFFF; --ink:#0E1726; --muted:#596377; --line:#E0E3EA;
+  --accent:#94661C; --accent-soft:#F4ECDC;
+  --band:#0D1B2E; --band-ink:#F2F4F8; --band-muted:#A7B2C5; --band-line:rgba(255,255,255,.07); --band-accent:#D9AE5B;
+  --f-display:"Archivo", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Source Sans 3", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0F19; --surface:#121A28; --ink:#E8ECF3; --muted:#9BA6B9; --line:#212B3C;
+    --accent:#D9AE5B; --accent-soft:#272114; --band:#0F1D33; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0F19; --surface:#121A28; --ink:#E8ECF3; --muted:#9BA6B9; --line:#212B3C;
+  --accent:#D9AE5B; --accent-soft:#272114; --band:#0F1D33; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--f-body); font-size:1.0625rem; line-height:1.65; -webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+h1,h2,h3{font-family:var(--f-display); line-height:1.15; text-wrap:balance; margin:0; font-stretch:108%}
+.wrap{max-width:72rem; margin:0 auto; padding-left:max(20px, env(safe-area-inset-left, 0px)); padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.narrow{max-width:46rem}
+.eyebrow{font-family:var(--f-mono); font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); font-weight:500; margin:0}
+
+/* header */
+.top{background:var(--band); color:var(--band-ink); border-bottom:1px solid var(--band-line)}
+.top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:14px}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+.mono{width:38px; height:38px; border-radius:8px; display:grid; place-items:center; background:var(--band-accent); color:#0D1B2E; font:800 .9375rem var(--f-display)}
+.brand-name{font:700 1rem var(--f-display); font-stretch:110%}
+.top nav{display:flex; gap:22px; font-size:.9375rem}
+.top nav a{text-decoration:none; color:var(--band-muted)}
+.top nav a:hover, .top nav a[aria-current]{color:var(--band-ink)}
+
+/* page heading band */
+.pagehead{background:var(--band); color:var(--band-ink);
+  background-image:linear-gradient(var(--band-line) 1px, transparent 1px), linear-gradient(90deg, var(--band-line) 1px, transparent 1px);
+  background-size:56px 56px}
+.pagehead .wrap{padding-block:64px 56px; display:flex; flex-direction:column; gap:16px}
+.pagehead .eyebrow{color:var(--band-accent)}
+.pagehead h1{font-size:clamp(2rem, 5vw, 3rem); font-weight:800; letter-spacing:-.02em; font-stretch:112%}
+.pagehead p.sub{color:var(--band-muted); font-size:1.125rem; max-width:40rem; margin:0}
+.meta{display:flex; flex-wrap:wrap; gap:8px 20px; font-family:var(--f-mono); font-size:.8125rem; color:var(--band-muted)}
+.crumb{font-size:.875rem; color:var(--band-muted)}
+.crumb a{color:var(--band-muted)}
+
+/* blog list */
+.list{padding-block:56px 88px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px}
+.post-card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:26px; display:flex; flex-direction:column; gap:12px; text-decoration:none; transition:border-color .2s}
+.post-card:hover{border-color:var(--accent)}
+.post-card .row{display:flex; justify-content:space-between; gap:12px; font-family:var(--f-mono); font-size:.75rem; color:var(--muted); letter-spacing:.04em}
+.post-card .cat{color:var(--accent); text-transform:uppercase; letter-spacing:.1em}
+.post-card h2{font-size:1.375rem; font-weight:750}
+.post-card p{margin:0; color:var(--muted)}
+.post-card .more{color:var(--accent); font-weight:600; font-size:.9375rem}
+.empty{border:1px dashed var(--line); border-radius:12px; padding:26px; color:var(--muted); display:flex; align-items:center}
+
+/* article */
+article.post{padding-block:56px 40px}
+.post p, .post li{color:var(--ink)}
+.post p{margin:0 0 1.15em}
+.post h2{font-size:1.5rem; font-weight:750; margin:2em 0 .7em}
+.post h3{font-size:1.1875rem; font-weight:700; margin:1.6em 0 .5em}
+.post ul, .post ol{padding-left:1.3em; margin:0 0 1.2em}
+.post li{margin-bottom:.45em}
+.post strong{font-weight:600}
+.lead{font-size:1.1875rem; color:var(--muted)!important}
+.callout{background:var(--accent-soft); border-radius:10px; padding:20px 22px; margin:1.6em 0}
+.callout p:last-child, .callout ul:last-child{margin-bottom:0}
+.callout .eyebrow{margin-bottom:8px}
+.formula{font-family:var(--f-mono); font-size:.9375rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin:0 0 1.2em; overflow-x:auto; white-space:nowrap}
+.tablewrap{overflow-x:auto; margin:0 0 1.4em; border:1px solid var(--line); border-radius:10px}
+table{border-collapse:collapse; width:100%; background:var(--surface); font-size:.9688rem}
+th, td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line); white-space:nowrap}
+th{font-family:var(--f-mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:500}
+td.num, th.num{text-align:right; font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700}
+.note{font-size:.9375rem; color:var(--muted)!important}
+
+.author{margin:40px 0 72px; padding:24px; border:1px solid var(--line); border-radius:12px; background:var(--surface); display:flex; gap:18px; align-items:center}
+.author .avatar{width:56px; height:56px; flex:none; border-radius:50%; display:grid; place-items:center; background:var(--band-accent); color:#0D1B2E; font:800 1.125rem var(--f-display)}
+.author b{font-family:var(--f-display); font-size:1.0625rem}
+.author p{margin:2px 0 0; color:var(--muted); font-size:.9375rem}
+.author a{color:var(--accent); font-weight:600}
+
+footer{background:var(--band); color:var(--band-muted); font-size:.875rem}
+footer .wrap{padding-block:24px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+@media (max-width: 700px){
+  .list{grid-template-columns:1fr}
+  .top nav{gap:14px}
+  .brand-name{display:none}
+  .author{flex-direction:column; align-items:flex-start}
+}

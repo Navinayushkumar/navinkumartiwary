@@ -166,6 +166,17 @@ p{margin:0}
 .chips{display:flex; flex-wrap:wrap; gap:8px; list-style:none; margin:0; padding:0}
 .chips li{border:1px solid var(--line); background:var(--surface); border-radius:6px; padding:6px 12px; font-size:.9063rem; font-weight:500}
 
+/* insights */
+.more-link{color:var(--accent); font-weight:600; text-decoration:none; font-size:.9375rem}
+.more-link:hover{text-decoration:underline}
+.post{display:flex; flex-direction:column; gap:10px; background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:28px; text-decoration:none; transition:border-color .2s, box-shadow .2s}
+.post:hover{border-color:var(--accent); box-shadow:var(--shadow)}
+.post-meta{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-family:var(--f-mono); font-size:.75rem; color:var(--muted)}
+.post-cat{color:var(--accent); text-transform:uppercase; letter-spacing:.1em}
+.post h3{font-size:1.375rem; font-weight:750}
+.post p{color:var(--muted); max-width:44rem}
+.post-go{color:var(--accent); font-weight:600; font-size:.9375rem}
+
 /* contact */
 .contact{margin-top:112px; background:var(--band); color:var(--band-ink);
   background-image:linear-gradient(var(--band-line) 1px, transparent 1px), linear-gradient(90deg, var(--band-line) 1px, transparent 1px);
@@ -230,6 +241,7 @@ footer .wrap{padding-block:24px; display:flex; justify-content:space-between; ga
         <li><a href="#experience">Experience</a></li>
         <li><a href="#tools">Projects</a></li>
         <li><a href="#credentials">Credentials</a></li>
+        <li><a href="blog/index.html">Insights</a></li>
       </ul>
     </nav>
     <a class="btn-sm" href="#contact">Contact</a>
@@ -399,6 +411,20 @@ footer .wrap{padding-block:24px; display:flex; justify-content:space-between; ga
           <div class="sg"><h3>Data &amp; Systems</h3><ul class="chips"><li>Power BI</li><li>SQL</li><li>Python</li><li>Advanced Excel</li><li>VBA</li><li>Roots HCM</li></ul></div>
           <div class="sg"><h3>Languages</h3><ul class="chips"><li>English</li><li>Hindi</li></ul></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="insights">
+    <div class="wrap sec-grid">
+      <div class="sec-head"><p class="eyebrow">Insights</p><h2>Latest articles</h2><p>Practical notes on UAE payroll, compliance and HR analytics.</p><a class="more-link" href="blog/index.html">All articles →</a></div>
+      <div class="sec-body">
+        <a class="post" href="blog/uae-gratuity-guide.html">
+          <div class="post-meta"><span class="post-cat">Payroll &amp; Compliance</span><span>24 Oct 2026 · 5 min read</span></div>
+          <h3>How UAE gratuity is calculated: a practical guide with examples</h3>
+          <p>The formula, what counts as wage, the 24-month cap, and two worked examples you can check against your own figures.</p>
+          <span class="post-go">Read article →</span>
+        </a>
       </div>
     </div>
   </section>
