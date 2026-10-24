@@ -1,10 +1,10 @@
 /* Shared style for all blog pages. Same palette and font as the homepage. */
 :root{
-  --bg:#06171C; --soft:#0B252D; --ink:#ECF5F4; --muted:#9BB4B4; --line:rgba(150,230,215,.16);
-  --accent:#2FE2C2; --accent-text:#2FE2C2; --accent-soft:#0E2E36; --on-accent:#03231E;
+  --bg:#FFD1DF; --soft:#FFDDE8; --ink:#24131F; --muted:#5E4352; --line:rgba(140,50,85,.16);
+  --accent:#0E5A63; --accent-text:#0E5A63; --accent-soft:rgba(255,255,255,.55); --on-accent:#FFFFFF;
   --font:"Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono:ui-monospace, Consolas, "Courier New", monospace;
-  color-scheme:dark;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font); font-size:1.0625rem; line-height:1.7; -webkit-font-smoothing:antialiased}
@@ -16,7 +16,7 @@ h1,h2,h3{line-height:1.2; text-wrap:balance; margin:0; letter-spacing:-.02em}
 .eyebrow{font-size:.8125rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-text); margin:0}
 
 /* header */
-.top{background:rgba(6,23,28,.9); border-bottom:1px solid var(--line)}
+.top{background:rgba(255,209,223,.92); border-bottom:1px solid var(--line)}
 .top .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:14px}
 .brand{display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:700; font-size:1.0625rem}
 .brand .lg{width:26px; height:26px; color:var(--accent-text)}
@@ -25,7 +25,7 @@ h1,h2,h3{line-height:1.2; text-wrap:balance; margin:0; letter-spacing:-.02em}
 .top nav a:hover, .top nav a[aria-current]{color:var(--accent-text)}
 
 /* page heading */
-.pagehead{background:radial-gradient(ellipse 60% 90% at 85% 30%, rgba(47,226,194,.14), transparent 70%), linear-gradient(160deg, #0E2E36, #0A232A 50%, var(--bg))}
+.pagehead{background:radial-gradient(ellipse 60% 90% at 85% 30%, rgba(14,90,99,.1), transparent 70%), linear-gradient(160deg, #FFDDE8, #FFC6D7 50%, var(--bg))}
 .pagehead .wrap{padding-block:64px 56px; display:flex; flex-direction:column; gap:16px}
 .pagehead h1{font-size:clamp(2rem, 5vw, 2.875rem); font-weight:800}
 .pagehead p.sub{color:var(--muted); font-size:1.125rem; max-width:40rem; margin:0}
@@ -36,8 +36,8 @@ h1,h2,h3{line-height:1.2; text-wrap:balance; margin:0; letter-spacing:-.02em}
 
 /* blog list */
 .list{padding-block:56px 88px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px}
-.post-card{background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:16px; padding:26px; display:flex; flex-direction:column; gap:12px; text-decoration:none; transition:box-shadow .2s}
-.post-card:hover{border-color:rgba(47,226,194,.5)}
+.post-card{background:rgba(255,255,255,.55); border:1px solid var(--line); border-radius:16px; padding:26px; display:flex; flex-direction:column; gap:12px; text-decoration:none; transition:box-shadow .2s}
+.post-card:hover{border-color:rgba(14,90,99,.45)}
 .post-card .row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.8125rem; color:var(--muted)}
 .post-card .cat{color:var(--accent-text); font-weight:600}
 .post-card h2{font-size:1.3125rem; font-weight:700}
