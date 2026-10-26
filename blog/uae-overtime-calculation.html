@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!--
+  HOW TO WRITE A NEW POST FROM THIS FILE
+  1. Copy this file and rename the copy (small letters, hyphens, no spaces).
+  2. Change the <title> and description just below.
+  3. Change the text inside the "pagehead" section (category, title, summary, date, read time).
+  4. Replace everything between "ARTICLE START" and "ARTICLE END" with your own writing.
+     Paragraph = <p>...</p>   Heading = <h2>...</h2>   Bullet list = <ul><li>...</li></ul>
+  5. Add a card for it in blog/index.html.
+-->
+<title>How to calculate overtime under UAE Labour Law · Navin Kumar Tiwary</title>
+<meta name="description" content="How overtime is calculated under UAE Labour Law: normal, night, rest day and public holiday rates, the 2-hour daily limit, and a worked example.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mint">Navin</span>&nbsp;Kumar Tiwary</a>
+    <nav aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="index.html" aria-current="page">Articles</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap narrow">
+    <p class="crumb"><a href="index.html">Articles</a> / Payroll &amp; Compliance</p>
+    <h1>How to calculate overtime under UAE Labour Law</h1>
+    <p class="sub">Normal, night, rest-day and holiday rates, the daily limit, and a worked example you can copy.</p>
+    <div class="meta"><span>By Navin Kumar Tiwary</span><span>26 Oct 2026</span><span>6 min read</span></div>
+  </div>
+</section>
+
+<main>
+  <article class="post wrap narrow">
+<!-- ===== ARTICLE START ===== -->
+    <p class="lead">Overtime is one of those payroll items that looks simple until you have a few hundred site timesheets in front of you. Here is how I calculate it under the current UAE Labour Law, with a worked example you can copy.</p>
+
+    <h2>The rules in short</h2>
+    <p>Overtime for private-sector employees is covered by Article 19 of Federal Decree-Law No. 33 of 2021. The main points are:</p>
+    <ul>
+      <li><strong>Normal hours:</strong> up to 8 hours a day or 48 hours a week.</li>
+      <li><strong>Overtime limit:</strong> no more than 2 extra hours a day, and total working time cannot go over 144 hours in any three weeks.</li>
+      <li><strong>Normal overtime:</strong> basic hourly wage plus at least 25%.</li>
+      <li><strong>Night overtime (10pm to 4am):</strong> basic hourly wage plus at least 50%. This does not apply to employees who work on a shift system.</li>
+      <li><strong>Working on the rest day:</strong> the employee gets another day off in place of it, or is paid the basic wage for that day plus at least 50%.</li>
+      <li><strong>Working on a public holiday:</strong> the employee gets a substitute day off, or is paid the wage for that day plus at least 50% of the basic wage.</li>
+    </ul>
+    <p>Notice that every rate is based on the <strong>basic</strong> wage, not the gross. Housing, transport and other allowances are left out.</p>
+
+    <h2>Step 1: find the hourly basic wage</h2>
+    <p>The law does not set a fixed divisor, so check your company policy or the employment contract. The method I see used most often in the UAE is:</p>
+    <div class="formula">Hourly basic wage = Monthly basic salary ÷ 30 ÷ 8</div>
+    <p>Some companies use the annual figure instead (basic × 12 ÷ 365 ÷ 8). It gives a slightly lower rate. Whichever you use, use it the same way for everyone and write it into your payroll policy.</p>
+
+    <h2>Step 2: sort the hours into the right bucket</h2>
+    <p>This is where most mistakes happen. Before any calculation, I split each employee's extra hours into:</p>
+    <ol>
+      <li>Normal overtime (rate 1.25)</li>
+      <li>Night overtime between 10pm and 4am (rate 1.5, unless the person is a shift worker)</li>
+      <li>Rest-day work, if no replacement day off is given</li>
+      <li>Public holiday work, if no replacement day off is given</li>
+    </ol>
+
+    <h2>A worked example</h2>
+    <p>A site employee has a basic salary of AED 2,000 a month. In one month he works 20 hours of normal overtime, 6 hours of night overtime, and one 8-hour rest day with no day off given back.</p>
+    <div class="formula">Hourly basic = 2,000 ÷ 30 ÷ 8 = AED 8.33 &nbsp;·&nbsp; Daily basic = 2,000 ÷ 30 = AED 66.67</div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Type</th><th class="num">Hours / days</th><th class="num">Rate</th><th class="num">Amount (AED)</th></tr></thead>
+        <tbody>
+          <tr><td>Normal overtime</td><td class="num">20 h</td><td class="num">8.33 × 1.25</td><td class="num">208.33</td></tr>
+          <tr><td>Night overtime</td><td class="num">6 h</td><td class="num">8.33 × 1.50</td><td class="num">75.00</td></tr>
+          <tr><td>Rest day worked</td><td class="num">1 day</td><td class="num">66.67 × 1.50</td><td class="num">100.00</td></tr>
+          <tr class="total"><td>Total overtime pay</td><td class="num"></td><td class="num"></td><td class="num">383.33</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Amounts are rounded to two decimals. In payroll, I keep the full hourly figure in the formula and round only the final amount.</p>
+
+    <h2>Things that trip people up</h2>
+    <div class="callout">
+      <p class="eyebrow">Common mistakes</p>
+      <ul>
+        <li>Calculating overtime on the gross salary instead of basic.</li>
+        <li>Paying night hours at 1.25 because the timesheet does not show start and finish times.</li>
+        <li>Paying the night rate to shift workers, which the law does not require.</li>
+        <li>Letting overtime run past 2 hours a day without checking the 144-hours-in-three-weeks limit.</li>
+        <li>Paying for a rest day and also giving a day off in place of it.</li>
+      </ul>
+    </div>
+
+    <h2>Who is not covered</h2>
+    <p>The working-hours rules, including overtime, do not apply to every role. The Executive Regulations exempt some categories, such as senior staff in supervisory or management positions with employer authority. Check where each role falls before you set up overtime in payroll, and make sure the contract says so clearly.</p>
+
+    <h2>A note on Ramadan</h2>
+    <p>Normal working hours in the private sector are reduced by two hours a day during Ramadan. Anything worked beyond the reduced hours counts as overtime and should be paid at the normal overtime rates.</p>
+
+    <h2>My checklist before closing overtime each month</h2>
+    <ol>
+      <li>Make sure every timesheet shows actual start and finish times, not just totals.</li>
+      <li>Get overtime approved by the site or section manager before it goes into payroll.</li>
+      <li>Split the hours into normal, night, rest day and public holiday.</li>
+      <li>Flag anyone over 2 hours a day or near the 144-hour limit.</li>
+      <li>Calculate on basic salary using the company's agreed divisor.</li>
+      <li>Show overtime as a separate line on the payslip so employees can check it.</li>
+    </ol>
+
+    <p>Clear timesheets solve most overtime disputes before they start. If the hours are right, the calculation is the easy part.</p>
+
+    <p class="note">This article is general information based on Federal Decree-Law No. 33 of 2021 for the UAE private sector. Free zones such as DIFC and ADGM have their own rules. For a specific case, check with MOHRE or a legal advisor.</p>
+
+<!-- ===== ARTICLE END ===== -->
+    <div class="author">
+      <img class="avatar" src="../images/navin-avatar.jpg" alt="Navin Kumar Tiwary" width="60" height="60">
+      <div>
+        <b>Navin Kumar Tiwary</b>
+        <p>Senior HR Officer in Abu Dhabi. 14 years of recruitment and payroll in UAE construction and engineering. <a href="../index.html#contact">Get in touch</a></p>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Navin Kumar Tiwary</span><a href="index.html">← All articles</a></div>
+</footer>
+
+</body>
+</html>
