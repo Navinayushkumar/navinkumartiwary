@@ -85,3 +85,5 @@ footer a{color:#E2C27F; text-decoration:none; font-weight:700}
   .top nav{gap:14px}
   .author{flex-direction:column; align-items:flex-start}
 }
+
+@media (max-width: 520px){ .top .wrap{flex-wrap:wrap; row-gap:8px} .top nav{gap:12px; flex-wrap:wrap} }

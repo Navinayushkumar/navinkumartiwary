@@ -137,6 +137,13 @@ p{margin:0}
 .mock tr.bad td{background:rgba(226,120,100,.22)}
 .mock tr.bad td:last-child{color:#FFB4A6}
 .mock caption{caption-side:bottom; text-align:left; padding:8px 12px; color:rgba(255,255,255,.5); font-size:.75rem}
+.kpis{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; margin-top:6px}
+.kpis div{padding:14px 16px; border-radius:10px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14)}
+.kpis b{display:block; font-size:1.625rem; font-weight:800; color:#fff; line-height:1.1; font-variant-numeric:tabular-nums}
+.kpis span{font-size:.8125rem; color:rgba(255,255,255,.7)}
+.btn-gold{background:#E2C27F; border-color:#E2C27F; color:var(--navy); align-self:flex-start; margin-top:auto}
+.btn-gold:hover{background:#EBD199; border-color:#EBD199}
+.others + .others{margin-top:40px}
 .case-right{padding:40px; display:flex; flex-direction:column; gap:22px}
 .step h4{margin:0 0 6px; font-size:.8125rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:800}
 .step p{font-size:.9844rem}
@@ -361,42 +368,46 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
 
   <section class="section band" id="built">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">Work samples</p><h2>Something I built</h2><p>I like fixing the small, annoying problems in payroll with a bit of code. Here is one example.</p></div>
+      <div class="head"><p class="eyebrow">Work samples</p><h2>The toolkit I built to run payroll</h2><p>I like fixing the slow, error-prone parts of HR with a bit of code. Over the years that turned into a full library of Excel VBA tools that now runs most of our monthly payroll cycle.</p></div>
 
       <article class="case">
         <div class="case-left">
-          <p class="eyebrow">Excel VBA · Payroll</p>
-          <h3>Catching bank-detail errors before salaries go out</h3>
-          <p>1,200+ employee accounts checked in seconds, every month.</p>
-          <div class="mock">
-            <div class="mock-wrap">
-              <table>
-                <caption>Sample data for illustration</caption>
-                <thead><tr><th>Emp. no.</th><th>Payroll IBAN</th><th>Bank record</th><th>Check</th></tr></thead>
-                <tbody>
-                  <tr><td>1042</td><td>AE07 …4512</td><td>AE07 …4512</td><td>Match</td></tr>
-                  <tr class="bad"><td>1057</td><td>AE21 …0938</td><td>AE21 …0983</td><td>Mismatch</td></tr>
-                  <tr><td>1063</td><td>AE45 …7721</td><td>AE45 …7721</td><td>Match</td></tr>
-                </tbody>
-              </table>
-            </div>
+          <p class="eyebrow">Excel VBA · Payroll automation</p>
+          <h3>HR &amp; Payroll Automation Toolkit</h3>
+          <p>70+ one-click tools that turn a manual monthly payroll cycle into a repeatable, checked process for 1,200+ employees.</p>
+          <div class="kpis">
+            <div><b>58</b><span>VBA modules</span></div>
+            <div><b>100</b><span>macros</span></div>
+            <div><b>70+</b><span>working tools</span></div>
+            <div><b>1,200+</b><span>employees covered</span></div>
           </div>
+          <a class="btn btn-gold" href="work/hr-payroll-automation-toolkit.html">See the full project
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="case-right">
-          <div class="step"><h4>The problem</h4><p>Every month the payroll sheet has to agree with the bank details we hold for more than 1,200 employees. One wrong digit means a failed transfer and someone waiting for their salary. Checking that many rows by eye is slow, and it's easy to miss things.</p></div>
-          <div class="step"><h4>What I did</h4><p>I wrote a VBA macro that compares the payroll sheet with the account records and colour-codes every row that doesn't match, so the problems stand out straight away.</p></div>
-          <div class="step"><h4>The result</h4><p>All 1,200+ accounts are checked in seconds, every month, before the WPS file goes to the bank. What used to be a long manual review is now one click, and errors get fixed before payday instead of after.</p></div>
+          <div class="step"><h4>The problem</h4><p>Every month, attendance and overtime came in from several sites, each in its own layout. It all had to be copied into payroll and cost sheets, reformatted for the ERP, and turned into a WPS salary file. All by hand. One wrong MOL number or bank account was enough to get a transfer rejected.</p></div>
+          <div class="step"><h4>What I did</h4><p>I built a personal macro library that sits inside Excel and works in any workbook. Each step of the payroll cycle became a one-click tool, with a confirmation prompt before anything runs.</p></div>
+          <div class="step"><h4>The result</h4><p>Most of the repetitive payroll and ERP preparation now runs on macros. Every MOL number, routing code and bank account is checked before the salary file goes to the bank, so errors get fixed before payday instead of after.</p></div>
         </div>
       </article>
 
       <div class="others">
-        <h3>A few other tools I use day to day</h3>
+        <h3>What's inside the toolkit</h3>
         <div class="tools">
-          <div class="tool"><b>WPS file preparation</b><span>Turns the payroll export into a clean, WPS-ready sheet in one run.</span><small>Excel VBA</small></div>
+          <div class="tool"><b>Payroll and cost sheets</b><span>Pulls attendance and overtime from site files into payroll by employee ID, and builds payroll, bonus and cost sheets per site.</span><small>18 macros</small></div>
+          <div class="tool"><b>WPS / SIF checks</b><span>Checks MOL numbers, routing codes and account numbers against the bank master and counts every error before submission.</span><small>Built into payroll</small></div>
+          <div class="tool"><b>ERP uploads</b><span>Turns raw attendance and OT exports into the ERP upload format for staff and workers, and tracks pending approvals.</span><small>10 macros</small></div>
+          <div class="tool"><b>Attendance, leave and meals</b><span>One standard format for daily punching, leave and meal data across all sites.</span><small>5 macros</small></div>
+          <div class="tool"><b>PDF and reporting</b><span>One-click PDF export of payroll and the weekly management report, plus PDF splitting and bulk unblocking.</span><small>6 macros</small></div>
+          <div class="tool"><b>Excel utilities and HR launcher</b><span>31 everyday clean-up tools, and 26 shortcuts that open HR registers, letter templates and shared folders in one click.</span><small>57 macros</small></div>
+        </div>
+      </div>
+
+      <div class="others">
+        <h3>Other things I've built</h3>
+        <div class="tools">
           <div class="tool"><b>Fuzzy name matching</b><span>Matches employee names that are spelled differently in different systems.</span><small>Excel VBA</small></div>
           <div class="tool"><b>Certificate renamer</b><span>Reads PDF insurance certificates and renames each file to the member's name.</span><small>Python</small></div>
-          <div class="tool"><b>Birthday and anniversary emails</b><span>Sends greetings automatically, with a test mode so nobody gets two.</span><small>Excel &amp; Outlook VBA</small></div>
-          <div class="tool"><b>PDF merge</b><span>Combines batches of PDF documents into one file for submissions.</span><small>Excel VBA</small></div>
           <div class="tool"><b>WhatsApp HR assistant</b><span>A chatbot to answer staff questions on UAE Labour Law. Still a work in progress.</span><small>In progress</small></div>
         </div>
       </div>
