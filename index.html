@@ -48,7 +48,7 @@ p{margin:0}
 .mono{width:40px; height:40px; border-radius:8px; background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:800; font-size:.9375rem; letter-spacing:.02em; flex:none}
 .logo b{display:block; color:var(--ink); font-size:1rem; line-height:1.2}
 .logo small{display:block; color:var(--muted); font-size:.75rem; font-weight:500}
-.top nav ul{display:flex; gap:28px; list-style:none; margin:0; padding:0}
+.top nav ul{display:flex; gap:24px; list-style:none; margin:0; padding:0}
 .top nav a{text-decoration:none; font-size:.9375rem; font-weight:600; color:var(--text)}
 .top nav a:hover{color:var(--navy)}
 .top .btn{padding:9px 18px; font-size:.875rem}
@@ -203,8 +203,13 @@ p{margin:0}
 footer{background:#0E1F45; color:rgba(255,255,255,.6)}
 footer .wrap{padding-block:22px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font-size:.8438rem}
 
+@media (max-width: 1100px){
+  .top .wrap{flex-wrap:wrap; row-gap:10px}
+  .top nav{order:3; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
+  .top nav ul{gap:20px; white-space:nowrap; padding-bottom:2px}
+  .top nav a{font-size:.875rem}
+}
 @media (max-width: 1000px){
-  .top nav{display:none}
   .tools{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
 @media (max-width: 860px){
@@ -247,6 +252,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
         <li><a href="#experience">Experience</a></li>
         <li><a href="#built">Work samples</a></li>
         <li><a href="blog/index.html">Articles</a></li>
+        <li><a href="tools/gratuity-calculator.html">Gratuity Calculator</a></li>
       </ul>
     </nav>
     <a class="btn btn-solid" href="#contact">Get in touch</a>

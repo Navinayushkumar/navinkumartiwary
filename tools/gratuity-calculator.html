@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UAE Gratuity Calculator · Navin Kumar Tiwary</title>
+<meta name="description" content="Free UAE end-of-service gratuity calculator for private-sector employees, based on Federal Decree-Law No. 33 of 2021. Enter basic salary and dates to see your gratuity with a full breakdown.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../blog/blog.css">
+<style>
+.calc{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:24px; align-items:start; padding-block:48px 24px}
+.card{min-width:0; background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; box-shadow:0 1px 2px rgba(18,34,63,.04), 0 18px 40px -26px rgba(18,34,63,.25)}
+.card h2{font-size:1.25rem; font-weight:800; margin-bottom:18px}
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:18px}
+.field label{font-size:.9063rem; font-weight:700; color:var(--ink)}
+.field small{font-size:.8125rem; color:var(--muted); line-height:1.4}
+.field input{font:600 1rem var(--font); color:var(--ink); padding:12px 14px; border:1.5px solid var(--line); border-radius:10px; background:#fff; width:100%; min-width:0}
+.field input:focus{outline:none; border-color:var(--navy); box-shadow:0 0 0 3px rgba(20,41,90,.12)}
+.money{position:relative}
+.money span{position:absolute; left:14px; top:50%; transform:translateY(-50%); font-weight:700; color:var(--muted); font-size:.875rem}
+.money input{padding-left:52px}
+.two{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
+.btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 22px; border-radius:8px; font:700 .9375rem var(--font); cursor:pointer; border:1.5px solid var(--navy)}
+.btn-solid{background:var(--navy); color:#fff}
+.btn-solid:hover{background:#1D3A78}
+.btn-ghost{background:#fff; color:var(--navy)}
+.btn-ghost:hover{background:var(--soft)}
+.err{color:#B23B2A; font-size:.875rem; font-weight:600; min-height:1.3em; margin-top:10px}
+
+.result-top{background:var(--navy); color:#fff; border-radius:12px; padding:22px 24px; margin-bottom:20px}
+.result-top small{display:block; font-size:.8125rem; letter-spacing:.1em; text-transform:uppercase; color:#E2C27F; font-weight:700}
+.result-top b{display:block; font-size:clamp(2rem, 5vw, 2.6rem); font-weight:800; line-height:1.15; margin-top:4px; font-variant-numeric:tabular-nums}
+.result-top span{font-size:.9063rem; color:rgba(255,255,255,.78)}
+.result-top.no{background:#FBEBEB; color:var(--ink)}
+.result-top.no small{color:#B23B2A}
+.result-top.no span{color:var(--text)}
+.rows{width:100%; border-collapse:collapse; font-size:.9375rem}
+.rows td{padding:11px 0; border-bottom:1px solid var(--line); white-space:normal}
+.rows td:last-child{text-align:right; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; padding-left:12px}
+.rows{table-layout:fixed}
+.rows td:first-child{width:52%}
+.rows tr.total td{border-bottom:0; font-size:1.0625rem; font-weight:800}
+.rows tr.cap td{color:#9A6A22}
+.how{padding-block:24px 72px}
+.how .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; margin-top:18px}
+.how .grid div{border:1px solid var(--line); border-radius:12px; padding:18px 20px; background:var(--soft)}
+.how .grid b{display:block; color:var(--ink); margin-bottom:4px}
+.how .grid p{margin:0; font-size:.9375rem}
+.how h2{font-size:1.5rem; font-weight:800}
+.how .note{margin-top:20px; font-size:.9063rem}
+.how a{color:var(--navy); font-weight:700}
+@media (max-width: 860px){
+  .calc{grid-template-columns:minmax(0,1fr); padding-block:32px 16px}
+  .how .grid{grid-template-columns:1fr}
+}
+@media (max-width: 420px){ .two{grid-template-columns:minmax(0,1fr)} .card{padding:22px} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mint">Navin</span>&nbsp;Kumar Tiwary</a>
+    <nav aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../blog/index.html">Articles</a>
+      <a href="gratuity-calculator.html" aria-current="page">Gratuity Calculator</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Free tool</p>
+    <h1>UAE Gratuity Calculator</h1>
+    <p class="sub">Work out end-of-service gratuity for private-sector employees under the current UAE Labour Law. Enter the basic salary and dates, and you'll see the amount with a full breakdown.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="calc">
+    <form class="card" id="form" novalidate>
+      <h2>Employee details</h2>
+      <div class="field">
+        <label for="basic">Last monthly basic salary</label>
+        <div class="money"><span>AED</span><input id="basic" name="basic" type="number" inputmode="decimal" min="0" step="any" value="4000"></div>
+        <small>Basic salary only. Housing, transport and other allowances are not included.</small>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="start">Joining date</label>
+          <input id="start" name="start" type="date" value="2019-01-01">
+        </div>
+        <div class="field">
+          <label for="end">Last working day</label>
+          <input id="end" name="end" type="date" value="2026-10-31">
+        </div>
+      </div>
+      <div class="field">
+        <label for="unpaid">Unpaid leave or absence (days)</label>
+        <input id="unpaid" name="unpaid" type="number" inputmode="numeric" min="0" step="1" value="0">
+        <small>These days don't count as service. Leave blank or 0 if none.</small>
+      </div>
+      <div class="btns">
+        <button class="btn btn-solid" type="submit">Calculate</button>
+        <button class="btn btn-ghost" type="button" id="reset">Clear</button>
+      </div>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <div class="result-top" id="headline">
+        <small>Estimated gratuity</small>
+        <b id="total">AED 0.00</b>
+        <span id="headSub">Enter details to calculate</span>
+      </div>
+      <table class="rows" id="rows"><tbody></tbody></table>
+    </section>
+  </div>
+
+  <section class="how">
+    <h2>How it's calculated</h2>
+    <div class="grid">
+      <div><b>Who qualifies</b><p>Private-sector employees with at least one year of continuous service (Article 51, Federal Decree-Law No. 33 of 2021).</p></div>
+      <div><b>The formula</b><p>Daily wage = basic ÷ 30. Then 21 days' wage for each of the first 5 years, and 30 days' wage for each year after that. Part years are paid in proportion.</p></div>
+      <div><b>The limit</b><p>Total gratuity can't be more than 24 months of basic salary. Resigning no longer reduces the amount under the current law.</p></div>
+    </div>
+    <p class="note">This calculator gives an estimate for general information. Service is counted in calendar days (including both the joining date and the last day) and divided by 365. It doesn't cover free zones with their own rules (such as DIFC and ADGM), UAE and GCC nationals on pension schemes, or money the employee owes the company. For a specific case, check with MOHRE or a legal advisor. Want the details? Read <a href="../blog/uae-gratuity-guide.html">my guide to UAE gratuity</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Navin Kumar Tiwary</span><a href="../index.html">← Back to home</a></div>
+</footer>
+
+<script>
+(function(){
+  var f=document.getElementById('form'), err=document.getElementById('err');
+  var basicEl=document.getElementById('basic'), startEl=document.getElementById('start'), endEl=document.getElementById('end'), unpaidEl=document.getElementById('unpaid');
+  var head=document.getElementById('headline'), total=document.getElementById('total'), headSub=document.getElementById('headSub'), tbody=document.querySelector('#rows tbody');
+  var aed=function(n){return 'AED '+n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2});};
+  function parse(v){ if(!v) return null; var p=v.split('-'); if(p.length!==3) return null; var d=Date.UTC(+p[0], +p[1]-1, +p[2]); return isNaN(d)?null:d; }
+  function ymd(days){
+    var y=Math.floor(days/365), rem=days-y*365, m=Math.floor(rem/30), d=rem-m*30;
+    var parts=[]; if(y) parts.push(y+(y===1?' year':' years')); if(m) parts.push(m+(m===1?' month':' months')); if(d||!parts.length) parts.push(d+(d===1?' day':' days'));
+    return parts.join(', ');
+  }
+  function row(label, value, cls){ return '<tr'+(cls?' class="'+cls+'"':'')+'><td>'+label+'</td><td>'+value+'</td></tr>'; }
+
+  function calc(){
+    err.textContent='';
+    var basic=parseFloat(basicEl.value), s=parse(startEl.value), e=parse(endEl.value), unpaid=parseInt(unpaidEl.value||'0',10);
+    if(!(basic>0)){ err.textContent='Enter the monthly basic salary in AED.'; return; }
+    if(s===null || e===null){ err.textContent='Enter both the joining date and the last working day.'; return; }
+    if(e<s){ err.textContent='The last working day must be on or after the joining date.'; return; }
+    if(isNaN(unpaid) || unpaid<0){ err.textContent='Unpaid days must be 0 or more.'; return; }
+    var calendarDays=Math.round((e-s)/86400000)+1;
+    if(unpaid>=calendarDays){ err.textContent='Unpaid days can\'t be more than the total service period.'; return; }
+    var days=calendarDays-unpaid, years=days/365, daily=basic/30;
+    var rows='';
+    rows+=row('Total service', ymd(days)+' ('+days.toLocaleString('en-US')+' days)');
+    if(unpaid>0) rows+=row('Unpaid days excluded', unpaid.toLocaleString('en-US')+' days');
+    rows+=row('Daily basic wage (basic ÷ 30)', aed(daily));
+
+    if(years<1){
+      head.classList.add('no');
+      total.textContent='Not eligible yet';
+      headSub.textContent='At least one year of continuous service is needed for gratuity.';
+      tbody.innerHTML=rows; return;
+    }
+    var first=Math.min(years,5), after=Math.max(years-5,0);
+    var amt1=first*21*daily, amt2=after*30*daily, gross=amt1+amt2, cap=24*basic, final=Math.min(gross,cap);
+    rows+=row('First 5 years: '+first.toFixed(2)+' yrs × 21 days', aed(amt1));
+    if(after>0) rows+=row('After 5 years: '+after.toFixed(2)+' yrs × 30 days', aed(amt2));
+    if(gross>cap) rows+=row('Capped at 24 months of basic salary', '− '+aed(gross-cap), 'cap');
+    rows+=row('Total gratuity', aed(final), 'total');
+    head.classList.remove('no');
+    total.textContent=aed(final);
+    headSub.textContent='For '+ymd(days)+' of service on a basic of '+aed(basic)+' a month';
+    tbody.innerHTML=rows;
+  }
+  f.addEventListener('submit', function(ev){ ev.preventDefault(); calc(); });
+  [basicEl,startEl,endEl,unpaidEl].forEach(function(el){ el.addEventListener('input', function(){ if(basicEl.value && startEl.value && endEl.value) calc(); }); });
+  document.getElementById('reset').addEventListener('click', function(){
+    basicEl.value=''; startEl.value=''; endEl.value=''; unpaidEl.value='0'; err.textContent='';
+    head.classList.remove('no'); total.textContent='AED 0.00'; headSub.textContent='Enter details to calculate'; tbody.innerHTML='';
+    basicEl.focus();
+  });
+  calc();
+})();
+</script>
+</body>
+</html>
