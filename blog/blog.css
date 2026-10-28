@@ -87,3 +87,7 @@ footer a{color:#E2C27F; text-decoration:none; font-weight:700}
 }
 
 @media (max-width: 520px){ .top .wrap{flex-wrap:wrap; row-gap:8px} .top nav{gap:12px; flex-wrap:wrap} }
+
+.sources{padding-left:1.2em}
+.sources li{margin-bottom:.6em; font-size:.9688rem}
+.sources a{color:var(--navy); font-weight:700}
