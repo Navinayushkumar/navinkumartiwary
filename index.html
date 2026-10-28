@@ -120,6 +120,8 @@ p{margin:0}
 .job h3{font-size:1.25rem; font-weight:700}
 .when{font-size:.875rem; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap}
 .job.now .when{color:var(--gold)}
+.tenure{font-weight:800; color:var(--ink)}
+.job.now .tenure{color:var(--gold)}
 .org{font-weight:600; color:var(--navy); margin-top:2px; font-size:.9688rem}
 .job p.desc{margin-top:12px; max-width:46rem}
 .job ul{margin:12px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px; max-width:46rem}
@@ -273,7 +275,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
         <p class="eyebrow">Recruitment &amp; Payroll · UAE</p>
         <h1>Navin Kumar Tiwary</h1>
         <p class="line">Senior HR professional managing recruitment, payroll and compliance for a construction workforce of 1,200+ in the UAE.</p>
-        <p class="more">For 14 years I've supported large construction and engineering projects across the UAE. I manage monthly payroll and WPS for more than 1,200 employees across 10+ project sites, have led over 600 blue-collar and white-collar hires, and handle final settlements in line with UAE Labour Law. Alongside the operational work, I use Power BI, SQL and Excel VBA to automate payroll checks and give management accurate, timely HR reporting.</p>
+        <p class="more">For <span data-exp="years">14</span> years I've supported large construction and engineering projects across the UAE. I manage monthly payroll and WPS for more than 1,200 employees across 10+ project sites, have led over 600 blue-collar and white-collar hires, and handle final settlements in line with UAE Labour Law. Alongside the operational work, I use Power BI, SQL and Excel VBA to automate payroll checks and give management accurate, timely HR reporting.</p>
         <div class="cta">
           <a class="btn btn-solid" href="#contact">Get in touch
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -283,7 +285,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
       <div class="arch">
         <div class="dots" aria-hidden="true"></div>
         <div class="arch-frame"><img src="images/navin-portrait.webp" alt="Navin Kumar Tiwary" width="827" height="1033"></div>
-        <div class="tag-card"><b>14+</b><span>years in UAE<br>HR &amp; payroll</span></div>
+        <div class="tag-card"><b data-exp="plus">14+</b><span>years in UAE<br>HR &amp; payroll</span></div>
       </div>
     </div>
   </section>
@@ -293,13 +295,13 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
       <div class="num"><b>1,200<em>+</em></b><span>employees on my monthly payroll</span></div>
       <div class="num"><b>600<em>+</em></b><span>people hired, blue-collar and white-collar</span></div>
       <div class="num"><b>10<em>+</em></b><span>project sites covered</span></div>
-      <div class="num"><b>14<em>+</em></b><span>years in UAE construction HR, with zero WPS penalties</span></div>
+      <div class="num"><b><span data-exp="years">14</span><em>+</em></b><span>years in UAE construction HR, with zero WPS penalties</span></div>
     </div>
   </section>
 
   <section class="section" id="work">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">What I do</p><h2>Areas of expertise</h2><p>The full range of HR, from planning the workforce to advising management, built on 14 years in UAE construction and engineering.</p></div>
+      <div class="head"><p class="eyebrow">What I do</p><h2>Areas of expertise</h2><p>The full range of HR, from planning the workforce to advising management, built on <span data-exp="years">14</span> years in UAE construction and engineering.</p></div>
       <div class="areas">
         <article class="area">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
@@ -344,7 +346,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
         <article class="area">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-3 5 3-1.5-8.5"/></svg></div>
           <h3>Qualifications &amp; Experience</h3>
-          <p>14+ years of HR in UAE construction and engineering, including Larsen &amp; Toubro and Al Habtoor. MBA in Data Science &amp; Analytics, CHRP, CHRM, IOSH and OSHA.</p>
+          <p><span data-exp="plus">14+</span> years of HR in UAE construction and engineering, including Larsen &amp; Toubro and Al Habtoor. MBA in Data Science &amp; Analytics, CHRP, CHRM, IOSH and OSHA.</p>
         </article>
       </div>
     </div>
@@ -375,7 +377,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
       <div class="head"><p class="eyebrow">Experience</p><h2>Where I've worked</h2></div>
       <ol class="jobs">
         <li class="job now">
-          <div class="job-top"><h3>Senior HR &amp; Payroll Officer</h3><span class="when">Nov 2017 – present</span></div>
+          <div class="job-top"><h3>Senior HR &amp; Payroll Officer</h3><span class="when">Nov 2017 – Present · <span class="tenure" data-start="2017-11">8 Years 11 Months</span></span></div>
           <p class="org">Engineering &amp; contracting company, Abu Dhabi</p>
           <ul>
             <li>Handle hiring for site and office roles end to end, from the requisition to the signed offer. More than 600 blue-collar and white-collar hires so far.</li>
@@ -389,17 +391,17 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
           </ul>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Site HR Administrator</h3><span class="when">Mar 2014 – Oct 2017</span></div>
+          <div class="job-top"><h3>Site HR Administrator</h3><span class="when">Mar 2014 – Oct 2017 · <span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span></span></div>
           <p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p>
           <p class="desc">I was the link between site staff, management and payroll. I kept time and attendance accurate, audited timesheets, ran the timekeeping system and trained supervisors on it, and produced the attendance and overtime reports managers used to plan staffing.</p>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Computer Teacher</h3><span class="when">Jan 2011 – Feb 2014</span></div>
+          <div class="job-top"><h3>Computer Teacher</h3><span class="when">Jan 2011 – Feb 2014 · <span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span></span></div>
           <p class="org">St. Thomas Academy, India</p>
           <p class="desc">I taught computer studies while finishing my graduation.</p>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Site Administrator</h3><span class="when">Jul 2008 – Dec 2010</span></div>
+          <div class="job-top"><h3>Site Administrator</h3><span class="when">Jul 2008 – Dec 2010 · <span class="tenure" data-start="2008-07" data-end="2010-12">2 Years 5 Months</span></span></div>
           <p class="org">Al Habtoor Engineering LLC, Abu Dhabi</p>
           <p class="desc">Daily attendance, overtime approvals, manpower requests and month-end timesheets for large project teams, plus the attendance and overtime reports that went to HR for payroll.</p>
         </li>
@@ -542,5 +544,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
   });
 })();
 </script>
+
+<script src="assets/experience.js"></script>
 </body>
 </html>
