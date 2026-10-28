@@ -116,11 +116,13 @@ p{margin:0}
 .job:last-child{padding-bottom:0}
 .job::before{content:""; position:absolute; left:-8px; top:6px; width:14px; height:14px; border-radius:50%; background:#fff; border:3px solid var(--line)}
 .job.now::before{border-color:var(--gold); background:var(--gold-soft)}
-.job-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:4px 16px}
+.job-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:4px 16px}
 .job h3{font-size:1.25rem; font-weight:700}
 .when{font-size:.875rem; font-weight:700; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap}
 .job.now .when{color:var(--gold)}
+.tenure-line{display:block; margin-top:2px}
 .tenure{font-weight:800; color:var(--ink)}
+.when{text-align:right}
 .job.now .tenure{color:var(--gold)}
 .org{font-weight:600; color:var(--navy); margin-top:2px; font-size:.9688rem}
 .job p.desc{margin-top:12px; max-width:46rem}
@@ -221,6 +223,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
   .areas{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
 @media (max-width: 860px){
+  .when{text-align:left}
   .hero .wrap{grid-template-columns:1fr; gap:40px; padding-block:40px 56px}
   .arch{max-width:340px}
   .tag-card{left:-10px}
@@ -377,8 +380,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
       <div class="head"><p class="eyebrow">Experience</p><h2>Where I've worked</h2></div>
       <ol class="jobs">
         <li class="job now">
-          <div class="job-top"><h3>Senior HR &amp; Payroll Officer</h3><span class="when">Nov 2017 – Present · <span class="tenure" data-start="2017-11">8 Years 11 Months</span></span></div>
-          <p class="org">Engineering &amp; contracting company, Abu Dhabi</p>
+          <div class="job-top"><div><h3>Senior HR &amp; Payroll Officer</h3><p class="org">Engineering &amp; contracting company, Abu Dhabi</p></div><span class="when">Nov 2017 – Present<span class="tenure-line">(<span class="tenure" data-start="2017-11">8 Years 11 Months</span>)</span></span></div>
           <ul>
             <li>Handle hiring for site and office roles end to end, from the requisition to the signed offer. More than 600 blue-collar and white-collar hires so far.</li>
             <li>Onboard new joiners, including visa, mobilisation, documents and induction.</li>
@@ -391,18 +393,15 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
           </ul>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Site HR Administrator</h3><span class="when">Mar 2014 – Oct 2017 · <span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span></span></div>
-          <p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p>
+          <div class="job-top"><div><h3>Site HR Administrator</h3><p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p></div><span class="when">Mar 2014 – Oct 2017<span class="tenure-line">(<span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span>)</span></span></div>
           <p class="desc">I was the link between site staff, management and payroll. I kept time and attendance accurate, audited timesheets, ran the timekeeping system and trained supervisors on it, and produced the attendance and overtime reports managers used to plan staffing.</p>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Computer Teacher</h3><span class="when">Jan 2011 – Feb 2014 · <span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span></span></div>
-          <p class="org">St. Thomas Academy, India</p>
+          <div class="job-top"><div><h3>Computer Teacher</h3><p class="org">St. Thomas Academy, India</p></div><span class="when">Jan 2011 – Feb 2014<span class="tenure-line">(<span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span>)</span></span></div>
           <p class="desc">I taught computer studies while finishing my graduation.</p>
         </li>
         <li class="job">
-          <div class="job-top"><h3>Site Administrator</h3><span class="when">Jul 2008 – Dec 2010 · <span class="tenure" data-start="2008-07" data-end="2010-12">2 Years 5 Months</span></span></div>
-          <p class="org">Al Habtoor Engineering LLC, Abu Dhabi</p>
+          <div class="job-top"><div><h3>Site Administrator</h3><p class="org">Al Habtoor Engineering LLC, Abu Dhabi</p></div><span class="when">Jul 2008 – Dec 2010<span class="tenure-line">(<span class="tenure" data-start="2008-07" data-end="2010-12">2 Years 5 Months</span>)</span></span></div>
           <p class="desc">Daily attendance, overtime approvals, manpower requests and month-end timesheets for large project teams, plus the attendance and overtime reports that went to HR for payroll.</p>
         </li>
       </ol>
