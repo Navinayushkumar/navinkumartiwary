@@ -97,7 +97,7 @@
         </div>
         <div class="field">
           <label for="end">Last working day</label>
-          <input id="end" name="end" type="date" value="2026-10-31">
+          <input id="end" name="end" type="date">
         </div>
       </div>
       <div class="field">
@@ -144,6 +144,7 @@
   var basicEl=document.getElementById('basic'), startEl=document.getElementById('start'), endEl=document.getElementById('end'), unpaidEl=document.getElementById('unpaid');
   var head=document.getElementById('headline'), total=document.getElementById('total'), headSub=document.getElementById('headSub'), tbody=document.querySelector('#rows tbody');
   var aed=function(n){return 'AED '+n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2});};
+  function today(){ var d=new Date(), p=function(n){return (n<10?'0':'')+n;}; return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); }
   function parse(v){ if(!v) return null; var p=v.split('-'); if(p.length!==3) return null; var d=Date.UTC(+p[0], +p[1]-1, +p[2]); return isNaN(d)?null:d; }
   function ymd(days){
     var y=Math.floor(days/365), rem=days-y*365, m=Math.floor(rem/30), d=rem-m*30;
@@ -187,10 +188,11 @@
   f.addEventListener('submit', function(ev){ ev.preventDefault(); calc(); });
   [basicEl,startEl,endEl,unpaidEl].forEach(function(el){ el.addEventListener('input', function(){ if(basicEl.value && startEl.value && endEl.value) calc(); }); });
   document.getElementById('reset').addEventListener('click', function(){
-    basicEl.value=''; startEl.value=''; endEl.value=''; unpaidEl.value='0'; err.textContent='';
+    basicEl.value=''; startEl.value=''; endEl.value=today(); unpaidEl.value='0'; err.textContent='';
     head.classList.remove('no'); total.textContent='AED 0.00'; headSub.textContent='Enter details to calculate'; tbody.innerHTML='';
     basicEl.focus();
   });
+  endEl.value=today();
   calc();
 })();
 </script>
