@@ -96,6 +96,11 @@ p{margin:0}
 .do-item h3{font-size:1.1875rem; font-weight:700; margin-bottom:8px}
 .do-item p{font-size:.9844rem}
 
+.areas{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px}
+.area{background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:12px; transition:border-color .2s, box-shadow .2s}
+.area:hover{border-color:#CFD6E1; box-shadow:var(--shadow)}
+.area h3{font-size:1.0938rem; font-weight:700; line-height:1.3}
+.area p{font-size:.9531rem; line-height:1.65}
 /* about */
 .about{display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); gap:64px; align-items:start}
 .about .text{display:flex; flex-direction:column; gap:18px}
@@ -211,6 +216,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
 }
 @media (max-width: 1000px){
   .tools{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .areas{grid-template-columns:repeat(2, minmax(0,1fr))}
 }
 @media (max-width: 860px){
   .hero .wrap{grid-template-columns:1fr; gap:40px; padding-block:40px 56px}
@@ -232,6 +238,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
 }
 @media (max-width: 560px){
   .tools{grid-template-columns:1fr}
+  .areas{grid-template-columns:1fr}
   .do-item{grid-template-columns:1fr; padding:24px}
   .logo small{display:none}
   .num b{font-size:1.875rem}
@@ -292,23 +299,52 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
 
   <section class="section" id="work">
     <div class="wrap">
-      <div class="head"><p class="eyebrow">What I do</p><h2>Four things I'm good at</h2></div>
-      <div class="do">
-        <article class="do-item">
+      <div class="head"><p class="eyebrow">What I do</p><h2>Areas of expertise</h2><p>The full range of HR, from planning the workforce to advising management, built on 14 years in UAE construction and engineering.</p></div>
+      <div class="areas">
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+          <h3>HR Strategy &amp; Workforce Planning</h3>
+          <p>I turn project programmes into month-by-month manpower plans, so hiring starts early enough to cover visas and mobilisation. I also prepare HR budget and headcount cost analysis for management.</p>
+        </article>
+        <article class="area">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M18 8v6M15 11h6"/></svg></div>
-          <div><h3>Recruitment</h3><p>More than 600 hires so far, from labourers and foremen to engineers and office staff. From the manpower request to the first day on site, I source and screen candidates, set up interviews, issue offers, and take care of visa and mobilisation so people arrive ready to work.</p></div>
+          <h3>Recruitment &amp; Talent Acquisition</h3>
+          <p>More than 600 hires, blue-collar and white-collar. I run the full cycle: requisitions, sourcing, screening, interviews, offers, visa and mobilisation, with time-to-fill tracked for every role.</p>
         </article>
-        <article class="do-item">
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
+          <h3>Performance Management</h3>
+          <p>I set up role-based goals and clear rating scales, support managers through the review cycle, and keep records that make reviews fair and consistent across sites.</p>
+        </article>
+        <article class="area">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
-          <div><h3>Payroll and WPS</h3><p>Monthly payroll for 1,200+ employees across 10+ project sites. Timesheets, overtime, leave, the WPS file, and the reconciliation with the bank and the ledger once salaries have gone out.</p></div>
+          <h3>Compensation &amp; Benefits</h3>
+          <p>Monthly payroll and WPS for 1,200+ employees with 100% accuracy. Salary benchmarking, increments, overtime, leave salary, gratuity and pension reconciliation, all in line with UAE Labour Law.</p>
         </article>
-        <article class="do-item">
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10v5c3 2 9 2 12 0v-5"/></svg></div>
+          <h3>Training &amp; Development</h3>
+          <p>I run induction for new joiners and train supervisors and staff on timekeeping systems, HR procedures and policies. My background as a teacher helps me explain things simply.</p>
+        </article>
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11l-4 4 4 4"/><path d="M17 13l4-4-4-4"/><path d="M3 15h10M21 9H11"/></svg></div>
+          <h3>Employee Relations</h3>
+          <p>I handle employee queries, grievances and disciplinary cases fairly and on record, and work to keep relations positive across a large, multicultural site workforce.</p>
+        </article>
+        <article class="area">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13l2 2 4-4"/></svg></div>
-          <div><h3>Exits and compliance</h3><p>Gratuity, leave salary and final settlements worked out properly under UAE Labour Law. I also write HR policies and keep employee records in a state where an audit is not a worry.</p></div>
+          <h3>HR Policies, Compliance &amp; Operations</h3>
+          <p>I write HR policies and SOPs, manage MOHRE processes and contracts, and keep employee records audit-ready. Zero WPS compliance penalties to date.</p>
         </article>
-        <article class="do-item">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
-          <div><h3>Reports and automation</h3><p>I have an MBA in Data Science &amp; Analytics and I use it every week. Power BI and Tableau for dashboards, SQL and Python for the heavy lifting, and Excel VBA for the repetitive jobs nobody should do by hand.</p></div>
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></div>
+          <h3>Management Support &amp; Advisory</h3>
+          <p>I advise managers on UAE Labour Law cases and prepare monthly HR and management reports, built in Power BI and Excel, that turn people data into clear decisions.</p>
+        </article>
+        <article class="area">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 21l5-3 5 3-1.5-8.5"/></svg></div>
+          <h3>Qualifications &amp; Experience</h3>
+          <p>14+ years of HR in UAE construction and engineering, including Larsen &amp; Toubro and Al Habtoor. MBA in Data Science &amp; Analytics, CHRP, CHRM, IOSH and OSHA.</p>
         </article>
       </div>
     </div>
