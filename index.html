@@ -32,6 +32,7 @@ h1,h2,h3{margin:0; color:var(--ink); line-height:1.15; letter-spacing:-.02em; te
 p{margin:0}
 .eyebrow{display:flex; align-items:center; gap:10px; font-size:.8125rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold)}
 .eyebrow::before{content:""; width:22px; height:2px; background:var(--gold)}
+.eyebrow.no-line::before{display:none}
 
 .btn{display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:8px; font:700 .9375rem var(--font); text-decoration:none; cursor:pointer; border:1.5px solid var(--navy); transition:background .15s, color .15s, transform .15s}
 .btn:hover{transform:translateY(-1px)}
@@ -485,7 +486,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
   <section class="section band" id="writing">
     <div class="wrap">
       <div class="head-row">
-        <div class="head"><p class="eyebrow">Articles</p></div>
+        <div class="head"><p class="eyebrow no-line">Articles</p></div>
         <a class="btn btn-ghost" href="blog/index.html">All articles</a>
       </div>
       <div class="arts">
