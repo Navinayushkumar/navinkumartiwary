@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UAE Leave Calculator · Navin Kumar Tiwary</title>
+<meta name="description" content="Free UAE annual leave and sick leave calculator for private-sector employees, based on Federal Decree-Law No. 33 of 2021. Work out leave earned, leave balance, leave salary and sick-pay bands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../blog/blog.css">
+<style>
+.calc{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:24px; align-items:start; padding-block:48px 24px}
+.card{min-width:0; background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px; box-shadow:0 1px 2px rgba(18,34,63,.04), 0 18px 40px -26px rgba(18,34,63,.25)}
+.card h2{font-size:1.25rem; font-weight:800; margin-bottom:18px}
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:18px}
+.field label{font-size:.9063rem; font-weight:700; color:var(--ink)}
+.field small{font-size:.8125rem; color:var(--muted); line-height:1.4}
+.field input{font:600 1rem var(--font); color:var(--ink); padding:12px 14px; border:1.5px solid var(--line); border-radius:10px; background:#fff; width:100%; min-width:0}
+.field input:focus{outline:none; border-color:var(--navy); box-shadow:0 0 0 3px rgba(20,41,90,.12)}
+.money{position:relative}
+.money span{position:absolute; left:14px; top:50%; transform:translateY(-50%); font-weight:700; color:var(--muted); font-size:.875rem}
+.money input{padding-left:52px}
+.two{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px}
+.btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+.btn{display:inline-flex; align-items:center; justify-content:center; padding:12px 22px; border-radius:8px; font:700 .9375rem var(--font); cursor:pointer; border:1.5px solid var(--navy)}
+.btn-solid{background:var(--navy); color:#fff}
+.btn-solid:hover{background:#1D3A78}
+.btn-ghost{background:#fff; color:var(--navy)}
+.btn-ghost:hover{background:var(--soft)}
+.err{color:#B23B2A; font-size:.875rem; font-weight:600; min-height:1.3em; margin-top:10px}
+
+.result-top{background:var(--navy); color:#fff; border-radius:12px; padding:22px 24px; margin-bottom:20px}
+.result-top small{display:block; font-size:.8125rem; letter-spacing:.1em; text-transform:uppercase; color:#E2C27F; font-weight:700}
+.result-top b{display:block; font-size:clamp(2rem, 5vw, 2.6rem); font-weight:800; line-height:1.15; margin-top:4px; font-variant-numeric:tabular-nums}
+.result-top span{font-size:.9063rem; color:rgba(255,255,255,.78)}
+.result-top.no{background:#FBEBEB; color:var(--ink)}
+.result-top.no small{color:#B23B2A}
+.result-top.no span{color:var(--text)}
+.rows{width:100%; border-collapse:collapse; font-size:.9375rem}
+.rows td{padding:11px 0; border-bottom:1px solid var(--line); white-space:normal}
+.rows td:last-child{text-align:right; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; padding-left:12px}
+.rows{table-layout:fixed}
+.rows td:first-child{width:52%}
+.rows tr.total td{border-bottom:0; font-size:1.0625rem; font-weight:800}
+.rows tr.cap td{color:#9A6A22}
+.how{padding-block:24px 72px}
+.how .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:16px; margin-top:18px}
+.how .grid div{border:1px solid var(--line); border-radius:12px; padding:18px 20px; background:var(--soft)}
+.how .grid b{display:block; color:var(--ink); margin-bottom:4px}
+.how .grid p{margin:0; font-size:.9375rem}
+.how h2{font-size:1.5rem; font-weight:800}
+.how .note{margin-top:20px; font-size:.9063rem}
+.how a{color:var(--navy); font-weight:700}
+@media (max-width: 860px){
+  .calc{grid-template-columns:minmax(0,1fr); padding-block:32px 16px}
+  .how .grid{grid-template-columns:1fr}
+}
+@media (max-width: 420px){ .two{grid-template-columns:minmax(0,1fr)} .card{padding:22px} }
+.check{display:flex; align-items:center; gap:10px; font-size:.9375rem; font-weight:600; color:var(--ink); margin-bottom:18px}
+.check input{width:18px; height:18px; accent-color:var(--navy)}
+.sec{padding-block:16px 8px}
+.sec > h2{font-size:1.5rem; font-weight:800; margin:24px 0 4px}
+.sec > p.lead{margin:0; color:var(--muted)}
+.band{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:16px}
+.band div{border-radius:10px; padding:14px 12px; text-align:center; border:1px solid var(--line)}
+.band b{display:block; font-size:1.5rem; font-weight:800; font-variant-numeric:tabular-nums; color:var(--ink)}
+.band span{font-size:.8125rem; color:var(--muted)}
+.band .full{background:#E5F4E4} .band .half{background:#F9EEDA} .band .none{background:#FBEBEB}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="mint">Navin</span>&nbsp;Kumar Tiwary</a>
+    <nav aria-label="Site">
+      <a href="../index.html">Home</a>
+      <a href="../blog/index.html">Articles</a>
+      <a href="gratuity-calculator.html">Gratuity Calculator</a>
+      <a href="leave-calculator.html" aria-current="page">Leave Calculator</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <p class="eyebrow">Free tool</p>
+    <h1>UAE Leave Calculator</h1>
+    <p class="sub">Work out annual leave earned, the remaining balance and its value, and how sick leave is paid, under the current UAE Labour Law for the private sector.</p>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="sec">
+    <h2>Annual leave balance and leave salary</h2>
+    <p class="lead">30 days a year after one year of service, or 2 days a month between 6 and 12 months.</p>
+  </div>
+  <div class="calc" style="padding-top:20px">
+    <form class="card" id="alForm" novalidate>
+      <h2>Employee details</h2>
+      <div class="field">
+        <label for="alBasic">Monthly basic salary</label>
+        <div class="money"><span>AED</span><input id="alBasic" type="number" inputmode="decimal" min="0" step="any" value="4000"></div>
+        <small>Used to value unused leave, which is paid on basic salary.</small>
+      </div>
+      <div class="two">
+        <div class="field"><label for="alStart">Joining date</label><input id="alStart" type="date" value="2024-01-01"></div>
+        <div class="field"><label for="alEnd">Calculate up to</label><input id="alEnd" type="date"></div>
+      </div>
+      <div class="two">
+        <div class="field"><label for="alTaken">Annual leave taken (days)</label><input id="alTaken" type="number" inputmode="numeric" min="0" step="0.5" value="20"></div>
+        <div class="field"><label for="alUnpaid">Unpaid absence (days)</label><input id="alUnpaid" type="number" inputmode="numeric" min="0" step="1" value="0"></div>
+      </div>
+      <div class="btns">
+        <button class="btn btn-solid" type="submit">Calculate</button>
+        <button class="btn btn-ghost" type="button" id="alReset">Clear</button>
+      </div>
+      <p class="err" id="alErr" role="alert"></p>
+    </form>
+    <section class="card" aria-live="polite">
+      <h2>Result</h2>
+      <div class="result-top" id="alHead"><small>Leave balance</small><b id="alTotal">0 days</b><span id="alSub">Enter details to calculate</span></div>
+      <table class="rows"><tbody id="alRows"></tbody></table>
+    </section>
+  </div>
+
+  <div class="sec">
+    <h2>Sick leave pay</h2>
+    <p class="lead">Up to 90 days a year after probation: the first 15 on full pay, the next 30 on half pay, the rest unpaid.</p>
+  </div>
+  <div class="calc" style="padding-top:20px">
+    <form class="card" id="slForm" novalidate>
+      <h2>Sick leave this year</h2>
+      <div class="field">
+        <label for="slSalary">Monthly salary</label>
+        <div class="money"><span>AED</span><input id="slSalary" type="number" inputmode="decimal" min="0" step="any" value="4000"></div>
+        <small>Use the wage your contract or company policy applies to sick pay.</small>
+      </div>
+      <div class="two">
+        <div class="field"><label for="slBefore">Sick days already taken this year</label><input id="slBefore" type="number" inputmode="numeric" min="0" max="90" step="1" value="10"></div>
+        <div class="field"><label for="slNow">New sick leave (days)</label><input id="slNow" type="number" inputmode="numeric" min="0" step="1" value="12"></div>
+      </div>
+      <label class="check"><input type="checkbox" id="slProb" checked> Probation completed</label>
+      <p class="err" id="slErr" role="alert"></p>
+    </form>
+    <section class="card" aria-live="polite">
+      <h2>How the new leave is paid</h2>
+      <div class="band"><div class="full"><b id="slFull">0</b><span>days full pay</span></div><div class="half"><b id="slHalf">0</b><span>days half pay</span></div><div class="none"><b id="slNone">0</b><span>days unpaid</span></div></div>
+      <table class="rows"><tbody id="slRows"></tbody></table>
+    </section>
+  </div>
+
+  <section class="how">
+    <h2>How it's calculated</h2>
+    <div class="grid">
+      <div><b>Annual leave</b><p>Less than 6 months: none yet. 6 to 12 months: 2 days for each full month. After a year: 30 days a year, with part years in proportion (Article 29).</p></div>
+      <div><b>Leave salary</b><p>Unused leave is valued at basic salary ÷ 30 per day. Some companies use basic × 12 ÷ 365 instead, so check your policy.</p></div>
+      <div><b>Sick leave</b><p>90 days a year after probation: days 1–15 full pay, 16–45 half pay, 46–90 unpaid. During probation, sick leave can only be unpaid (Article 31).</p></div>
+    </div>
+    <p class="note">This calculator gives an estimate for general information. It doesn't apply carry-forward limits, company policies that give more than the law, or free zones with their own rules (such as DIFC and ADGM). For a specific case, check with MOHRE or a legal advisor. For the full rules, read <a href="../blog/uae-leave-entitlements.html">my guide to UAE leave entitlements</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Navin Kumar Tiwary</span><a href="../index.html">← Back to home</a></div>
+</footer>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var aed=function(n){return 'AED '+n.toLocaleString('en-US',{minimumFractionDigits:2, maximumFractionDigits:2});};
+  var num=function(n){return (Math.round(n*100)/100).toLocaleString('en-US',{maximumFractionDigits:2});};
+  function today(){ var d=new Date(), p=function(n){return (n<10?'0':'')+n;}; return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate()); }
+  function parse(v){ if(!v) return null; var p=v.split('-'); if(p.length!==3) return null; var t=Date.UTC(+p[0],+p[1]-1,+p[2]); return isNaN(t)?null:{t:t,y:+p[0],m:+p[1],d:+p[2]}; }
+  function fullMonths(a,b){ var n=new Date(b.t+86400000), y=n.getUTCFullYear(), mo=n.getUTCMonth()+1, d=n.getUTCDate(); var m=(y-a.y)*12+(mo-a.m); if(d<a.d) m--; return Math.max(0,m); }
+  function row(l,v,c){ return '<tr'+(c?' class="'+c+'"':'')+'><td>'+l+'</td><td>'+v+'</td></tr>'; }
+
+  // ---- annual leave
+  function al(){
+    var err=$('alErr'); err.textContent='';
+    var basic=parseFloat($('alBasic').value), s=parse($('alStart').value), e=parse($('alEnd').value);
+    var taken=parseFloat($('alTaken').value||'0'), unpaid=parseInt($('alUnpaid').value||'0',10);
+    if(!(basic>0)){ err.textContent='Enter the monthly basic salary in AED.'; return; }
+    if(!s||!e){ err.textContent='Enter both dates.'; return; }
+    if(e.t<s.t){ err.textContent='The end date must be on or after the joining date.'; return; }
+    if(isNaN(taken)||taken<0||isNaN(unpaid)||unpaid<0){ err.textContent='Leave taken and unpaid days must be 0 or more.'; return; }
+    var cal=Math.round((e.t-s.t)/86400000)+1;
+    if(unpaid>=cal){ err.textContent='Unpaid days can\'t be more than the service period.'; return; }
+    var days=cal-unpaid, months=fullMonths(s,e), earned, basis;
+    var adjMonths=Math.max(0, months-Math.round(unpaid/30));
+    if(days<365){
+      if(adjMonths<6){ earned=0; basis='Less than 6 months of service: annual leave isn\'t due yet'; }
+      else { earned=2*adjMonths; basis=adjMonths+' full months × 2 days'; }
+    } else { earned=30*days/365; basis=num(days/365)+' years × 30 days'; }
+    var bal=earned-taken, daily=basic/30, h=$('alHead');
+    var r=row('Service counted', days.toLocaleString('en-US')+' days'+(unpaid?' (after '+unpaid+' unpaid days)':''));
+    r+=row('Leave earned', num(earned)+' days')+row('How', basis)+row('Leave taken', num(taken)+' days');
+    r+=row('Daily basic wage (basic ÷ 30)', aed(daily));
+    if(bal>=0){
+      r+=row('Value of balance', aed(bal*daily), 'total');
+      h.classList.remove('no'); $('alTotal').textContent=num(bal)+(Math.abs(bal-1)<1e-9?' day':' days');
+      $('alSub').textContent='Worth about '+aed(bal*daily)+' if paid out at end of service';
+    } else {
+      r+=row('Leave taken in advance', num(-bal)+' days', 'cap');
+      h.classList.add('no'); $('alTotal').textContent=num(bal)+' days';
+      $('alSub').textContent='More leave has been taken than earned so far';
+    }
+    $('alRows').innerHTML=r;
+  }
+  $('alForm').addEventListener('submit',function(ev){ev.preventDefault(); al();});
+  ['alBasic','alStart','alEnd','alTaken','alUnpaid'].forEach(function(id){ $(id).addEventListener('input',al); });
+  $('alReset').addEventListener('click',function(){ $('alBasic').value=''; $('alStart').value=''; $('alEnd').value=today(); $('alTaken').value='0'; $('alUnpaid').value='0'; $('alErr').textContent=''; $('alRows').innerHTML=''; $('alHead').classList.remove('no'); $('alTotal').textContent='0 days'; $('alSub').textContent='Enter details to calculate'; $('alBasic').focus(); });
+
+  // ---- sick leave
+  function sl(){
+    var err=$('slErr'); err.textContent='';
+    var sal=parseFloat($('slSalary').value), before=parseInt($('slBefore').value||'0',10), now=parseInt($('slNow').value||'0',10), prob=$('slProb').checked;
+    if(!(sal>0)){ err.textContent='Enter the monthly salary in AED.'; return; }
+    if(isNaN(before)||before<0||isNaN(now)||now<0){ err.textContent='Days must be 0 or more.'; return; }
+    var full=0, half=0, none=0;
+    if(!prob){ none=now; }
+    else {
+      for(var d=before+1; d<=before+now; d++){ if(d<=15) full++; else if(d<=45) half++; else none++; }
+    }
+    var daily=sal/30, pay=full*daily+half*daily/2;
+    $('slFull').textContent=full; $('slHalf').textContent=half; $('slNone').textContent=none;
+    var r='';
+    if(!prob) r+=row('During probation','Unpaid, if the employer approves');
+    r+=row('Daily wage (salary ÷ 30)', aed(daily));
+    r+=row('Full-pay days', full+' × '+aed(daily));
+    r+=row('Half-pay days', half+' × '+aed(daily/2));
+    if(prob && before+now>90) r+=row('Over the 90-day yearly limit', (before+now-90)+' days', 'cap');
+    r+=row('Sick pay for this leave', aed(pay), 'total');
+    $('slRows').innerHTML=r;
+  }
+  ['slSalary','slBefore','slNow','slProb'].forEach(function(id){ $(id).addEventListener('input',sl); $(id).addEventListener('change',sl); });
+  $('slForm').addEventListener('submit',function(ev){ev.preventDefault(); sl();});
+
+  $('alEnd').value=today(); al(); sl();
+})();
+</script>
+<script src="../assets/experience.js"></script>
+</body>
+</html>
