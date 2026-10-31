@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://navinayushkumar.github.io/navinkumartiwary/sitemap.xml
+Sitemap: https://navinkumartiwary.github.io/navinkumartiwary/sitemap.xml
