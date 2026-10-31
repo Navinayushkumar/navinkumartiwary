@@ -59,11 +59,20 @@ p{margin:0}
 .mono{width:40px; height:40px; border-radius:8px; background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:800; font-size:.9375rem; letter-spacing:.02em; flex:none}
 .logo b{display:block; color:var(--ink); font-size:1rem; line-height:1.2}
 .logo small{display:block; color:var(--muted); font-size:.75rem; font-weight:500}
-.top nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+.top nav > ul{display:flex; gap:20px; list-style:none; margin:0; padding:0}
 .top nav a{text-decoration:none; font-size:.875rem; font-weight:600; color:var(--text); white-space:nowrap}
 .logo small, .top .btn{white-space:nowrap}
 .top nav a:hover{color:var(--navy)}
 .top .btn{padding:9px 18px; font-size:.875rem}
+.top nav .dd{position:relative}
+.top nav .dd-label span{font-size:.7em; margin-left:2px}
+.top nav .sub{display:none; position:absolute; top:100%; left:-14px; margin:0; padding:8px; list-style:none; background:#fff; border:1px solid var(--line); border-radius:10px; box-shadow:var(--shadow); min-width:200px; z-index:40}
+.top nav .dd::after{content:""; position:absolute; left:0; right:0; top:100%; height:12px}
+.top nav .sub{margin-top:10px}
+.top nav .dd:hover .sub, .top nav .dd:focus-within .sub{display:block}
+.top nav .sub a{display:block; padding:9px 12px; border-radius:7px}
+.top nav .sub a:hover{background:var(--band); color:var(--navy)}
+
 
 /* hero */
 .hero .wrap{display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:56px; align-items:center; padding-block:64px 72px}
@@ -240,6 +249,11 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
   .top nav{order:3; width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch}
   .top nav ul{gap:20px; white-space:nowrap; padding-bottom:2px}
   .top nav a{font-size:.875rem}
+  .top nav .dd-label{display:none}
+  .top nav .sub{display:contents !important}
+  .top nav .sub li{display:inline-block; margin-left:20px}
+  .top nav .sub a{display:inline; padding:0}
+  .top nav .sub a:hover{background:none}
 }
 @media (max-width: 1000px){
   .tools{grid-template-columns:repeat(2, minmax(0,1fr))}
@@ -285,13 +299,19 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
     <a class="logo" href="#top"><span class="mono">NT</span><span><b>Navin Kumar Tiwary</b><small>Senior HR Officer · Abu Dhabi</small></span></a>
     <nav aria-label="Sections">
       <ul>
-        <li><a href="#work">Expertise</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#work">Expertise</a></li>
         <li><a href="#built">Projects</a></li>
+        <li><a href="#credentials">Qualifications</a></li>
         <li><a href="blog/index.html">Articles</a></li>
-        <li><a href="tools/gratuity-calculator.html">Gratuity Calculator</a></li>
-        <li><a href="tools/leave-calculator.html">Leave Calculator</a></li>
+        <li class="dd"><a href="tools/gratuity-calculator.html" class="dd-label" aria-haspopup="true">HR Tools <span aria-hidden="true">▾</span></a>
+          <ul class="sub">
+            <li><a href="tools/gratuity-calculator.html">Gratuity Calculator</a></li>
+            <li><a href="tools/leave-calculator.html">Leave Calculator</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <a class="btn btn-solid" href="#contact">Get in touch</a>
@@ -326,6 +346,69 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
       <div class="num"><b>600<em>+</em></b><span>people hired, blue-collar and white-collar</span></div>
       <div class="num"><b>10<em>+</em></b><span>projects completed, 3 sites active now</span></div>
       <div class="num"><b><i data-exp="years">14</i><em>+</em></b><span>Years in UAE</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about">
+      <div class="text">
+        <div class="head" style="margin-bottom:4px"><p class="eyebrow">About me</p><h2>A bit of background</h2></div>
+        <p>My HR career started on construction sites. In 2008 I joined Al Habtoor Engineering as a site administrator, looking after attendance, overtime and timesheets for large project teams. A few years later I moved to Larsen &amp; Toubro, where I ran HR administration for a major site in Abu Dhabi.</p>
+        <p>Since 2017 I've been Senior HR &amp; Payroll Officer at an engineering and contracting company in Abu Dhabi. I look after recruitment and payroll for more than 1,200 employees across three active project sites, after supporting more than 10 projects through to completion. I also work closely with finance on reconciliations and month-end.</p>
+        <p>Along the way I completed an MBA in Data Science &amp; Analytics. Today I use Power BI, SQL, Python and VBA to take the routine, error-prone parts out of HR and payroll. My VBA automation alone cut payroll preparation time by 40%, so more of my time goes into the people side of the job.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Based in</dt><dd>Abu Dhabi, UAE</dd></div>
+        <div><dt>Current role</dt><dd>Senior HR &amp; Payroll Officer</dd></div>
+        <div><dt>Looking for</dt><dd>Senior HR Officer / HR Manager</dd></div>
+        <div><dt>Notice period</dt><dd>30 days</dd></div>
+        <div><dt>Education</dt><dd>MBA, Data Science &amp; Analytics</dd></div>
+        <div><dt>Languages</dt><dd>English, Hindi</dd></div>
+        <div><dt>Driving licence</dt><dd>UAE, automatic</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section band" id="experience">
+    <div class="wrap">
+      <div class="head"><h2 class="gold-h">Experience:</h2></div>
+      <ol class="jobs">
+        <li class="job now">
+          <div class="job-top"><div><h3>Senior HR &amp; Payroll Officer</h3><p class="org">Engineering &amp; contracting company, Abu Dhabi</p></div><span class="when">Nov 2017 – Present<span class="tenure-line">(<span class="tenure" data-start="2017-11">8 Years 11 Months</span>)</span></span></div>
+          <ul>
+            <li>Plan manpower with project managers for each new site, from mobilisation to demobilisation, across 10+ completed projects.</li>
+            <li>Manage end-to-end recruitment for blue-collar and white-collar roles, with 600+ employees hired to date.</li>
+            <li>Built a structured onboarding programme, including a 32-slide induction on UAE compliance, and a standard offboarding process.</li>
+            <li>Run monthly payroll and WPS for 1,200+ employees across three active project sites, with 100% accuracy and zero WPS penalties in 7+ years.</li>
+            <li>Calculate gratuity, leave salary and final settlements, and administer medical insurance for all employees.</li>
+            <li>Drafted a full HR Policy Manual in line with Federal Decree-Law No. 33 of 2021, including new work-injury and death-in-service policies.</li>
+            <li>Keep the company MOHRE-compliant: contracts, work permits, renewals, cancellations, labour inspections and document-expiry tracking.</li>
+            <li>Handle grievances, disciplinary cases and terminations, keeping every decision fair, documented and lawful.</li>
+            <li>Reconcile payroll with bank statements and the general ledger, run the monthly pension reconciliation, and post payroll journal entries.</li>
+            <li>Built Power BI dashboards, Python attrition analysis and an in-house Python HR system, and automated payroll with Excel VBA, cutting preparation time by 40%.</li>
+          </ul>
+        </li>
+        <li class="job">
+          <div class="job-top"><div><h3>Site HR Administrator</h3><p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p></div><span class="when">Mar 2014 – Oct 2017<span class="tenure-line">(<span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span>)</span></span></div>
+          <div class="duties">
+            <div class="duty"><h4>Attendance &amp; Timekeeping</h4><ul><li>Monitored the arrival of labour buses at the start of each month and each shift to ensure workers reached the site on time and proceeded directly to attendance points.</li><li>Supervised biometric attendance areas to ensure every worker registered attendance correctly, preventing missed punches, proxy attendance and record errors.</li><li>Conducted scheduled and surprise site visits to physically verify that staff and labour were present and actively working at their assigned locations.</li><li>Performed on-site headcounts and reconciled the results against biometric attendance records, identifying and investigating any discrepancies.</li><li>Followed up with supervisors on absenteeism, late arrivals and unrecorded attendance, correcting records before month-end closing.</li><li>Maintained accurate and up-to-date attendance records to support payroll, audits and management reporting.</li></ul></div>
+            <div class="duty"><h4>Overtime &amp; Payroll Support</h4><ul><li>Verified overtime hours worked during the final days of each month with site supervisors and managers before payroll closing.</li><li>Obtained supervisor and manager initials and approvals on overtime sheets to ensure every overtime claim was authorised and properly documented.</li><li>Finalised verified attendance and overtime data and submitted it for timely and error-free payroll processing.</li><li>Helped minimise payroll disputes by ensuring all attendance and overtime records were cross-checked and approved before processing.</li></ul></div>
+            <div class="duty"><h4>Manpower Planning</h4><ul><li>Reviewed manpower requirement plans with the Construction Manager to confirm workforce needs for upcoming project activities.</li><li>Coordinated demobilisation plans with the Construction Manager, ensuring the orderly release of manpower as project phases were completed.</li><li>Tracked actual manpower on site against the approved plan and reported shortages or surplus to management.</li></ul></div>
+            <div class="duty"><h4>Labour Welfare</h4><ul><li>Ensured all workers had access to the required welfare facilities in line with company standards and labour regulations.</li><li>Arranged and maintained proper rest areas for labour to use during breaks and rest periods.</li><li>Ensured a continuous supply of clean, safe drinking water at all work locations across the site.</li><li>Ensured adequate, clean and well-maintained toilet facilities were available for the entire workforce.</li><li>Monitored meal arrangements for labour and addressed issues related to food quality, quantity or timing.</li></ul></div>
+            <div class="duty"><h4>Site Hygiene &amp; Sanitation</h4><ul><li>Coordinated the regular collection and disposal of food waste and general garbage to keep the site clean and hygienic.</li><li>Scheduled and monitored the routine cleaning of toilets across the site.</li><li>Arranged regular water refilling for remote and portable toilets to keep them functional at all times.</li><li>Organised the regular removal of sewage water to prevent overflow, odour and health hazards.</li></ul></div>
+            <div class="duty"><h4>Transportation</h4><ul><li>Planned and arranged transportation for labour between accommodation and project sites.</li><li>Coordinated bus schedules with transport providers to ensure safe, timely and sufficient transport for all shifts.</li></ul></div>
+            <div class="duty"><h4>Employee Relations &amp; Grievance Handling</h4><ul><li>Acted as the main point of contact for all site-related employee issues and complaints.</li><li>Handled and resolved complaints related to attendance, overtime, transportation, meals, drinking water and garbage collection.</li><li>Escalated unresolved or serious concerns to management and followed up until closure, supporting worker satisfaction and smooth site operations.</li></ul></div>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-top"><div><h3>Computer Teacher</h3><p class="org">St. Thomas Academy, India</p></div><span class="when">Jan 2011 – Feb 2014<span class="tenure-line">(<span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span>)</span></span></div>
+          <p class="desc">I taught computer studies while finishing my graduation.</p>
+        </li>
+        <li class="job">
+          <div class="job-top"><div><h3>Site Administrator</h3><p class="org">Al Habtoor Engineering LLC, Abu Dhabi</p></div><span class="when">Jul 2008 – Dec 2010<span class="tenure-line">(<span class="tenure" data-start="2008-07" data-end="2010-12">2 Years 5 Months</span>)</span></span></div>
+          <p class="desc">Daily attendance, overtime approvals, manpower requests and month-end timesheets for large project teams, plus the attendance and overtime reports that went to HR for payroll.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -393,69 +476,6 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
           <p><span data-exp="plus">14+</span> years of HR in UAE construction and engineering, including Larsen &amp; Toubro and Al Habtoor. MBA in Data Science &amp; Analytics, CHRP, CHRM, IOSH and OSHA.</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
-    <div class="wrap about">
-      <div class="text">
-        <div class="head" style="margin-bottom:4px"><p class="eyebrow">About me</p><h2>A bit of background</h2></div>
-        <p>My HR career started on construction sites. In 2008 I joined Al Habtoor Engineering as a site administrator, looking after attendance, overtime and timesheets for large project teams. A few years later I moved to Larsen &amp; Toubro, where I ran HR administration for a major site in Abu Dhabi.</p>
-        <p>Since 2017 I've been Senior HR &amp; Payroll Officer at an engineering and contracting company in Abu Dhabi. I look after recruitment and payroll for more than 1,200 employees across three active project sites, after supporting more than 10 projects through to completion. I also work closely with finance on reconciliations and month-end.</p>
-        <p>Along the way I completed an MBA in Data Science &amp; Analytics. Today I use Power BI, SQL, Python and VBA to take the routine, error-prone parts out of HR and payroll. My VBA automation alone cut payroll preparation time by 40%, so more of my time goes into the people side of the job.</p>
-      </div>
-      <dl class="facts">
-        <div><dt>Based in</dt><dd>Abu Dhabi, UAE</dd></div>
-        <div><dt>Current role</dt><dd>Senior HR &amp; Payroll Officer</dd></div>
-        <div><dt>Looking for</dt><dd>Senior HR Officer / HR Manager</dd></div>
-        <div><dt>Notice period</dt><dd>30 days</dd></div>
-        <div><dt>Education</dt><dd>MBA, Data Science &amp; Analytics</dd></div>
-        <div><dt>Languages</dt><dd>English, Hindi</dd></div>
-        <div><dt>Driving licence</dt><dd>UAE, automatic</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <section class="section band" id="experience">
-    <div class="wrap">
-      <div class="head"><h2 class="gold-h">Experience:</h2></div>
-      <ol class="jobs">
-        <li class="job now">
-          <div class="job-top"><div><h3>Senior HR &amp; Payroll Officer</h3><p class="org">Engineering &amp; contracting company, Abu Dhabi</p></div><span class="when">Nov 2017 – Present<span class="tenure-line">(<span class="tenure" data-start="2017-11">8 Years 11 Months</span>)</span></span></div>
-          <ul>
-            <li>Plan manpower with project managers for each new site, from mobilisation to demobilisation, across 10+ completed projects.</li>
-            <li>Manage end-to-end recruitment for blue-collar and white-collar roles, with 600+ employees hired to date.</li>
-            <li>Built a structured onboarding programme, including a 32-slide induction on UAE compliance, and a standard offboarding process.</li>
-            <li>Run monthly payroll and WPS for 1,200+ employees across three active project sites, with 100% accuracy and zero WPS penalties in 7+ years.</li>
-            <li>Calculate gratuity, leave salary and final settlements, and administer medical insurance for all employees.</li>
-            <li>Drafted a full HR Policy Manual in line with Federal Decree-Law No. 33 of 2021, including new work-injury and death-in-service policies.</li>
-            <li>Keep the company MOHRE-compliant: contracts, work permits, renewals, cancellations, labour inspections and document-expiry tracking.</li>
-            <li>Handle grievances, disciplinary cases and terminations, keeping every decision fair, documented and lawful.</li>
-            <li>Reconcile payroll with bank statements and the general ledger, run the monthly pension reconciliation, and post payroll journal entries.</li>
-            <li>Built Power BI dashboards, Python attrition analysis and an in-house Python HR system, and automated payroll with Excel VBA, cutting preparation time by 40%.</li>
-          </ul>
-        </li>
-        <li class="job">
-          <div class="job-top"><div><h3>Site HR Administrator</h3><p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p></div><span class="when">Mar 2014 – Oct 2017<span class="tenure-line">(<span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span>)</span></span></div>
-          <div class="duties">
-            <div class="duty"><h4>Attendance &amp; Timekeeping</h4><ul><li>Monitored the arrival of labour buses at the start of each month and each shift to ensure workers reached the site on time and proceeded directly to attendance points.</li><li>Supervised biometric attendance areas to ensure every worker registered attendance correctly, preventing missed punches, proxy attendance and record errors.</li><li>Conducted scheduled and surprise site visits to physically verify that staff and labour were present and actively working at their assigned locations.</li><li>Performed on-site headcounts and reconciled the results against biometric attendance records, identifying and investigating any discrepancies.</li><li>Followed up with supervisors on absenteeism, late arrivals and unrecorded attendance, correcting records before month-end closing.</li><li>Maintained accurate and up-to-date attendance records to support payroll, audits and management reporting.</li></ul></div>
-            <div class="duty"><h4>Overtime &amp; Payroll Support</h4><ul><li>Verified overtime hours worked during the final days of each month with site supervisors and managers before payroll closing.</li><li>Obtained supervisor and manager initials and approvals on overtime sheets to ensure every overtime claim was authorised and properly documented.</li><li>Finalised verified attendance and overtime data and submitted it for timely and error-free payroll processing.</li><li>Helped minimise payroll disputes by ensuring all attendance and overtime records were cross-checked and approved before processing.</li></ul></div>
-            <div class="duty"><h4>Manpower Planning</h4><ul><li>Reviewed manpower requirement plans with the Construction Manager to confirm workforce needs for upcoming project activities.</li><li>Coordinated demobilisation plans with the Construction Manager, ensuring the orderly release of manpower as project phases were completed.</li><li>Tracked actual manpower on site against the approved plan and reported shortages or surplus to management.</li></ul></div>
-            <div class="duty"><h4>Labour Welfare</h4><ul><li>Ensured all workers had access to the required welfare facilities in line with company standards and labour regulations.</li><li>Arranged and maintained proper rest areas for labour to use during breaks and rest periods.</li><li>Ensured a continuous supply of clean, safe drinking water at all work locations across the site.</li><li>Ensured adequate, clean and well-maintained toilet facilities were available for the entire workforce.</li><li>Monitored meal arrangements for labour and addressed issues related to food quality, quantity or timing.</li></ul></div>
-            <div class="duty"><h4>Site Hygiene &amp; Sanitation</h4><ul><li>Coordinated the regular collection and disposal of food waste and general garbage to keep the site clean and hygienic.</li><li>Scheduled and monitored the routine cleaning of toilets across the site.</li><li>Arranged regular water refilling for remote and portable toilets to keep them functional at all times.</li><li>Organised the regular removal of sewage water to prevent overflow, odour and health hazards.</li></ul></div>
-            <div class="duty"><h4>Transportation</h4><ul><li>Planned and arranged transportation for labour between accommodation and project sites.</li><li>Coordinated bus schedules with transport providers to ensure safe, timely and sufficient transport for all shifts.</li></ul></div>
-            <div class="duty"><h4>Employee Relations &amp; Grievance Handling</h4><ul><li>Acted as the main point of contact for all site-related employee issues and complaints.</li><li>Handled and resolved complaints related to attendance, overtime, transportation, meals, drinking water and garbage collection.</li><li>Escalated unresolved or serious concerns to management and followed up until closure, supporting worker satisfaction and smooth site operations.</li></ul></div>
-          </div>
-        </li>
-        <li class="job">
-          <div class="job-top"><div><h3>Computer Teacher</h3><p class="org">St. Thomas Academy, India</p></div><span class="when">Jan 2011 – Feb 2014<span class="tenure-line">(<span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span>)</span></span></div>
-          <p class="desc">I taught computer studies while finishing my graduation.</p>
-        </li>
-        <li class="job">
-          <div class="job-top"><div><h3>Site Administrator</h3><p class="org">Al Habtoor Engineering LLC, Abu Dhabi</p></div><span class="when">Jul 2008 – Dec 2010<span class="tenure-line">(<span class="tenure" data-start="2008-07" data-end="2010-12">2 Years 5 Months</span>)</span></span></div>
-          <p class="desc">Daily attendance, overtime approvals, manpower requests and month-end timesheets for large project teams, plus the attendance and overtime reports that went to HR for payroll.</p>
-        </li>
-      </ol>
     </div>
   </section>
 
