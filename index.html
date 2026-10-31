@@ -193,6 +193,8 @@ p{margin:0}
 .tool{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 20px; display:flex; flex-direction:column; gap:4px}
 .tool b{color:var(--ink); font-size:.9844rem}
 .tool span{font-size:.875rem; color:var(--muted); line-height:1.5}
+.tool-link{text-decoration:none; transition:border-color .2s, box-shadow .2s}
+.tool-link:hover{border-color:var(--navy); box-shadow:var(--shadow)}
 .tool small{font-size:.75rem; font-weight:700; color:var(--gold); letter-spacing:.04em; margin-top:auto; padding-top:6px}
 
 /* credentials */
@@ -520,7 +522,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
         <h3>Other things I've built</h3>
         <div class="tools">
           <div class="tool"><b>In-house HR system</b><span>Built in Python with 4 modules: employee records, payroll and WPS with gratuity, attendance and leave, and document and visa tracking.</span><small>Python</small></div>
-          <div class="tool"><b>HR analytics dashboards</b><span>Power BI dashboards and Python attrition analysis that track headcount, turnover and HR cost for management.</span><small>Power BI · Python</small></div>
+          <a class="tool tool-link" href="work/hr-analytics-dashboard.html"><b>HR analytics dashboard</b><span>An interactive dashboard I built in Python and Plotly: headcount, attrition, payroll cost, overtime and visa renewals, with filters by site and department.</span><small>Open live dashboard →</small></a>
           <div class="tool"><b>Onboarding and offboarding kit</b><span>A 32-slide UAE compliance induction, an offboarding form and a process flowchart aligned with UAE Labour Law.</span><small>HR process</small></div>
           <div class="tool"><b>Fuzzy name matching</b><span>Matches employee names that are spelled differently in different systems.</span><small>Excel VBA</small></div>
           <div class="tool"><b>Certificate renamer</b><span>Reads PDF insurance certificates and renames each file to the member's name.</span><small>Python</small></div>
