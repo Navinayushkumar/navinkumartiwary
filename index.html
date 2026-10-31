@@ -148,6 +148,9 @@ p{margin:0}
 .job ul{margin:12px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px; max-width:46rem}
 .job li::marker{color:var(--gold)}
 
+.duties{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px 36px; margin-top:16px; max-width:none}
+.duty h4{margin:0 0 6px; font-size:.8125rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); font-weight:800}
+.duty ul{margin:0 !important; padding-left:20px; display:flex; flex-direction:column; gap:6px; font-size:.9688rem}
 /* case study */
 .case{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
 .case-left{background:var(--navy); color:#fff; padding:40px; display:flex; flex-direction:column; gap:18px; min-width:0}
@@ -254,6 +257,7 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
   .num:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
   .do{grid-template-columns:1fr}
   .about{grid-template-columns:1fr; gap:36px}
+  .duties{grid-template-columns:1fr}
   .case{grid-template-columns:1fr}
   .case-left, .case-right{padding:28px}
   .creds{grid-template-columns:1fr; gap:32px}
@@ -433,7 +437,15 @@ footer .wrap{padding-block:22px; display:flex; justify-content:space-between; ga
         </li>
         <li class="job">
           <div class="job-top"><div><h3>Site HR Administrator</h3><p class="org">Larsen &amp; Toubro Limited, Abu Dhabi</p></div><span class="when">Mar 2014 – Oct 2017<span class="tenure-line">(<span class="tenure" data-start="2014-03" data-end="2017-10">3 Years 7 Months</span>)</span></span></div>
-          <p class="desc">I was the link between site staff, management and payroll. I kept time and attendance accurate, audited timesheets, ran the timekeeping system and trained supervisors on it, and produced the attendance and overtime reports managers used to plan staffing.</p>
+          <div class="duties">
+            <div class="duty"><h4>Attendance &amp; Timekeeping</h4><ul><li>Monitored the arrival of labour buses at the start of each month and each shift to ensure workers reached the site on time and proceeded directly to attendance points.</li><li>Supervised biometric attendance areas to ensure every worker registered attendance correctly, preventing missed punches, proxy attendance and record errors.</li><li>Conducted scheduled and surprise site visits to physically verify that staff and labour were present and actively working at their assigned locations.</li><li>Performed on-site headcounts and reconciled the results against biometric attendance records, identifying and investigating any discrepancies.</li><li>Followed up with supervisors on absenteeism, late arrivals and unrecorded attendance, correcting records before month-end closing.</li><li>Maintained accurate and up-to-date attendance records to support payroll, audits and management reporting.</li></ul></div>
+            <div class="duty"><h4>Overtime &amp; Payroll Support</h4><ul><li>Verified overtime hours worked during the final days of each month with site supervisors and managers before payroll closing.</li><li>Obtained supervisor and manager initials and approvals on overtime sheets to ensure every overtime claim was authorised and properly documented.</li><li>Finalised verified attendance and overtime data and submitted it for timely and error-free payroll processing.</li><li>Helped minimise payroll disputes by ensuring all attendance and overtime records were cross-checked and approved before processing.</li></ul></div>
+            <div class="duty"><h4>Manpower Planning</h4><ul><li>Reviewed manpower requirement plans with the Construction Manager to confirm workforce needs for upcoming project activities.</li><li>Coordinated demobilisation plans with the Construction Manager, ensuring the orderly release of manpower as project phases were completed.</li><li>Tracked actual manpower on site against the approved plan and reported shortages or surplus to management.</li></ul></div>
+            <div class="duty"><h4>Labour Welfare</h4><ul><li>Ensured all workers had access to the required welfare facilities in line with company standards and labour regulations.</li><li>Arranged and maintained proper rest areas for labour to use during breaks and rest periods.</li><li>Ensured a continuous supply of clean, safe drinking water at all work locations across the site.</li><li>Ensured adequate, clean and well-maintained toilet facilities were available for the entire workforce.</li><li>Monitored meal arrangements for labour and addressed issues related to food quality, quantity or timing.</li></ul></div>
+            <div class="duty"><h4>Site Hygiene &amp; Sanitation</h4><ul><li>Coordinated the regular collection and disposal of food waste and general garbage to keep the site clean and hygienic.</li><li>Scheduled and monitored the routine cleaning of toilets across the site.</li><li>Arranged regular water refilling for remote and portable toilets to keep them functional at all times.</li><li>Organised the regular removal of sewage water to prevent overflow, odour and health hazards.</li></ul></div>
+            <div class="duty"><h4>Transportation</h4><ul><li>Planned and arranged transportation for labour between accommodation and project sites.</li><li>Coordinated bus schedules with transport providers to ensure safe, timely and sufficient transport for all shifts.</li></ul></div>
+            <div class="duty"><h4>Employee Relations &amp; Grievance Handling</h4><ul><li>Acted as the main point of contact for all site-related employee issues and complaints.</li><li>Handled and resolved complaints related to attendance, overtime, transportation, meals, drinking water and garbage collection.</li><li>Escalated unresolved or serious concerns to management and followed up until closure, supporting worker satisfaction and smooth site operations.</li></ul></div>
+          </div>
         </li>
         <li class="job">
           <div class="job-top"><div><h3>Computer Teacher</h3><p class="org">St. Thomas Academy, India</p></div><span class="when">Jan 2011 – Feb 2014<span class="tenure-line">(<span class="tenure" data-start="2011-01" data-end="2014-02">3 Years 1 Month</span>)</span></span></div>
